@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Estudiante</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/editarE.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Estudiante</h1>
+        <form th:action="@{/estudiante/editar}" th:object="${estudiante}" method="post">
+            <input type="hidden" th:field="*{usuarioId}">
+            
+            <div class="form-group">
+                <label for="usuarioId"><i class="fas fa-id-card"></i> ID de Usuario:</label>
+                <input type="text" id="usuarioId" th:field="*{usuarioId}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="semestre"><i class="fas fa-calendar-alt"></i> Semestre:</label>
+                <input type="text" id="semestre" th:field="*{semestre}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="carrera"><i class="fas fa-building"></i> Carrera:</label>
+                <input type="text" id="carrera" th:field="*{carrera}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="universidad"><i class="fas fa-university"></i> Universidad:</label>
+                <input type="text" id="universidad" th:field="*{universidad}" required>
+            </div>
+            
+            <div class="buttons">
+                <input type="submit" value="Actualizar Estudiante">
+                <a href="javascript:history.back()" class="back-button"><i class="fas fa-arrow-left"></i> Volver</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

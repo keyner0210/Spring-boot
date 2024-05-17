@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Estudiantes</title>
+    <link th:href="@{/css/listarE.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}" rel="stylesheet" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Estudiantes</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar estudiantes...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID de Usuario</th>
+                    <th>Semestre</th>
+                    <th>Carrera</th>
+                    <th>Universidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Reemplazar ${estudiantes} con el nombre correcto del atributo en tu modelo -->
+                <!-- Asegúrate de que el modelo que se pasa desde el controlador tenga el nombre correcto -->
+                <tr th:each="estudiante : ${estudiantes}">
+                    <td th:text="${estudiante.usuarioId}"></td> <!-- Corregido el nombre del atributo -->
+                    <td th:text="${estudiante.semestre}"></td>
+                    <td th:text="${estudiante.carrera}"></td>
+                    <td th:text="${estudiante.universidad}"></td>
+                    <td>
+                        <a th:href="@{'/estudiante/editar/' + ${estudiante.usuarioId}}"><i class="fas fa-edit"></i></a> <!-- Corregida la URL de href -->
+                        <a th:href="@{'/estudiante/eliminar/' + ${estudiante.usuarioId}}"><i class="fas fa-trash-alt"></i></a> <!-- Corregida la URL de href -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="javascript:history.back()" class="back-button"><i class="fas fa-arrow-left"></i>Volver</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("searchButton").addEventListener("click", function() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("searchInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementsByTagName("table")[0];
+                tr = table.getElementsByTagName("tr");
+            
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

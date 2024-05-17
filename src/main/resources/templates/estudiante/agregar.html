@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Estudiante</title>
+    <link th:href="@{/css/agregar.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Estudiante</h1>
+
+        <form action="/estudiante/agregar" method="post">
+            <div class="form-group">
+                <label for="usuarioId">ID de Usuario:</label>
+                <input type="text" id="usuarioId" name="usuarioId" required>
+            </div>
+            <div class="form-group">
+                <label for="semestre">Semestre:</label>
+                <input type="text" id="semestre" name="semestre" required>
+            </div>
+            <div class="form-group">
+                <label for="carrera">Carrera:</label>
+                <input type="text" id="carrera" name="carrera" required>
+            </div>
+            <div class="form-group">
+                <label for="universidad">Universidad:</label>
+                <input type="text" id="universidad" name="universidad" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar Estudiante">
+            </div>
+        </form>
+        
+        <a href="javascript:history.back()" class="back-button"><i class="fas fa-arrow-left"></i>Volver</a>
+    </div>
+</body>
+</html>

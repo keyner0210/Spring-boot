@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Usuario</title>
+    <link th:href="@{/css/registrar.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Usuario</h1>
+        <form action="#" th:action="@{/usuario/registrar}" th:object="${usuario}" method="post">
+            
+            <div class="form-group">
+                <label for="clave"><i class="fas fa-lock"></i> Contraseña:</label>
+                <input type="clave" id="pass" th:field="*{clave}" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido"><i class="fas fa-user"></i> Apellido:</label>
+                <input type="text" id="apellido" th:field="*{apellido}" required>
+            </div>
+            <div class="form-group">
+                <label for="FechaNacimiento"><i class="fas fa-calendar-alt"></i> Fecha Nacimiento:</label>
+                <input type="date" id="FechaNacimiento" th:field="*{FechaNacimiento}" required>
+            </div>
+            <div class="form-group">
+                <label for="genero"><i class="fas fa-venus-mars"></i> Género:</label>
+                <select id="genero" name="genero">
+					<option value="Masculino">Masculino</option>
+					<option value="Femenino">Femenino</option>
+					<option value="Otro">Otro</option>
+				</select>
+            </div>
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" th:field="*{email}" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono"><i class="fas fa-phone"></i> Teléfono:</label>
+                <input type="tel" id="telefono" th:field="*{telefono}" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn"><i class="fas fa-user-plus"></i> Registrar</button>
+                <a href="/" class="btn"><i class="fas fa-home"></i> Inicio</a>
+            </div>
+        </form>
+        <div th:if="${agregado}">
+            <p class="success-message"><i class="fas fa-check-circle"></i> Usuario agregado correctamente.</p>
+        </div>
+        <div th:if="${error}">
+            <p class="error-message"><i class="fas fa-exclamation-circle"></i> Error al agregar el usuario.</p>
+        </div>
+    </div>
+</body>
+</html>

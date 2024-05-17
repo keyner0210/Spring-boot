@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página de inicio</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Bienvenido al crud Spring Boot</h1>
+
+        <div class="card-container" th:unless="${loggedIn}">
+            <div class="card">
+                <a href="/usuario/login" class="btn"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a>
+            </div>
+            <div class="card">
+                <a href="/usuario/registrar" class="btn"><i class="fas fa-user-plus"></i>Registrar</a>
+            </div>
+        </div>
+        
+        <div class="card-container" th:if="${loggedIn}">
+            <div class="card">
+                <a href="/usuario/listar" class="btn"><i class="fas fa-users"></i>Listar Usuarios</a>
+            </div>
+            <div class="card">
+                <a href="/estudiante/agregar" class="btn"><i class="fas fa-plus"></i>Agregar estudiante</a>
+            </div>
+            <div class="card">
+                <a href="/estudiante/listar" class="btn"><i class="fas fa-list"></i>Listar estudiante</a>
+            </div>
+            <div class="card">
+                <a href="/usuario/cerrarSesion" class="btn"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+</body>
+</html>

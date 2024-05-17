@@ -1,0 +1,121 @@
+/* listar.css */
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+
+thead {
+    background-color: #ff6666;
+    color: #ffffff;
+}
+
+tbody tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+
+.btn-editar,
+.btn-eliminar,
+.btn-atras {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-editar {
+    background-color: #00cc99;
+}
+
+.btn-eliminar {
+    background-color: #ff3300;
+}
+
+.btn-atras {
+    display: block;
+    margin-top: 20px;
+    background-color: #0066cc;
+    text-align: center;
+}
+
+.btn-editar:hover,
+.btn-eliminar:hover,
+.btn-atras:hover {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Estilos de iconos */
+i.fas {
+    margin-right: 5px;
+}
+
+/* Animaciones */
+@keyframes colorChange {
+    0% { background-color: #ff6666; }
+    25% { background-color: #00cc99; }
+    50% { background-color: #ff3300; }
+    75% { background-color: #0066cc; }
+    100% { background-color: #ff6666; }
+}
+
+table thead {
+    animation: colorChange 5s infinite;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+table tbody tr {
+    animation: fadeIn 0.5s ease-in-out;
+    animation-fill-mode: both;
+    animation-delay: calc(0.1s * var(--index));
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.btn-atras {
+    animation: slideUp 0.5s ease-in-out;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+
